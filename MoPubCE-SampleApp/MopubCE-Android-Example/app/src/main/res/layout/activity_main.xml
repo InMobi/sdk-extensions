@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <com.mopub.mobileads.MoPubView
+        android:id="@+id/bannerview"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnRefreshAd"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/refresh" />
+
+    <Button
+        android:id="@+id/btnLoadInterstitial"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/LoadInterstitial" />
+
+    <Button
+        android:id="@+id/btnLoadNativeStrands"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/LoadNativeStrands" />
+
+    <Button
+        android:id="@+id/btnLoadNative"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/LoadNative" />
+
+    <Button
+        android:id="@+id/btnLoadRewarded"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/LoadRewarded" />
+
+    
+</LinearLayout>

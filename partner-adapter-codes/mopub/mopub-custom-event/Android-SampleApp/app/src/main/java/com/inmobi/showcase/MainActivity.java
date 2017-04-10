@@ -13,6 +13,7 @@ import com.mopub.common.MoPubReward;
 import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubInterstitial;
 import com.mopub.mobileads.MoPubRewardedVideoListener;
+import com.mopub.mobileads.MoPubRewardedVideos;
 import com.mopub.mobileads.MoPubView;
 
 import java.util.Set;
@@ -99,11 +100,11 @@ public class MainActivity extends Activity implements OnClickListener, MoPubInte
 
 	public void getRewardedAd(){
 		if (!rewardedVideoInitialized) {
-			MoPub.initializeRewardedVideo(this);
+			MoPubRewardedVideos.initializeRewardedVideo(this);
 			rewardedVideoInitialized = true;
 		}
-		MoPub.setRewardedVideoListener(this);
-		MoPub.loadRewardedVideo("a20bf45862464a3c825be02334f3ab40");
+		MoPubRewardedVideos.setRewardedVideoListener(this);
+		MoPubRewardedVideos.loadRewardedVideo("a20bf45862464a3c825be02334f3ab40");
 	}
 
 	public void getNativeStrands() {
@@ -176,7 +177,7 @@ public class MainActivity extends Activity implements OnClickListener, MoPubInte
 	@Override
 	public void onRewardedVideoLoadSuccess(String adUnitId) {
 		Log.v(TAG,"Rewarded video loaded successfully");
-		MoPub.showRewardedVideo("a20bf45862464a3c825be02334f3ab40");
+		MoPubRewardedVideos.showRewardedVideo("a20bf45862464a3c825be02334f3ab40");
 	}
 
 	@Override

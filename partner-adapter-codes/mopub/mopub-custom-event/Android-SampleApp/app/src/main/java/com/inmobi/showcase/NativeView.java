@@ -1,5 +1,13 @@
 package com.inmobi.showcase;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 import com.mopub.nativeads.MoPubAdAdapter;
 import com.mopub.nativeads.MoPubNative.MoPubNativeNetworkListener;
 import com.mopub.nativeads.MoPubNativeAdPositioning;
@@ -9,31 +17,20 @@ import com.mopub.nativeads.NativeErrorCode;
 import com.mopub.nativeads.RequestParameters;
 import com.mopub.nativeads.ViewBinder;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
 public class NativeView extends Activity implements MoPubNativeNetworkListener{
 
 	private static final String MY_AD_UNIT_ID = "9af9709550ba4d74a4421943b48a27f5";
-	RequestParameters myRequestParameters   ;
 	private ListView myListView;
 	private MoPubAdAdapter mAdAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.listview);
 		myListView = (ListView)findViewById(R.id.actionlist);
 		final ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1);
-		for (int i = 0; i < 30; ++i) {
+		for (int i = 0; i < 50; ++i) {
 			myAdapter.add("Item " + i);
 		}
 
@@ -57,28 +54,24 @@ public class NativeView extends Activity implements MoPubNativeNetworkListener{
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO Auto-generated method stub
 		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
-		 myListView.destroyDrawingCache();
+		myListView.destroyDrawingCache();
 		super.onDestroy();
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
 		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
-		myRequestParameters = new RequestParameters.Builder()
-		.build();
+		RequestParameters myRequestParameters = new RequestParameters.Builder()
+				.build();
 
 		// Request ads when the user returns to this activity.
 		mAdAdapter.loadAds(MY_AD_UNIT_ID, myRequestParameters);
@@ -87,13 +80,11 @@ public class NativeView extends Activity implements MoPubNativeNetworkListener{
 
 	@Override
 	public void onNativeFail(NativeErrorCode arg0) {
-		// TODO Auto-generated method stub
 		Log.v("NativeView","Native failed to load:"+arg0.toString());
 	}
 
 	@Override
 	public void onNativeLoad(NativeAd arg0) {
-		// TODO Auto-generated method stub
 		Log.v("NativeView", "Native ad loaded");
 	}
 }

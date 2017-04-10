@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 
 @SuppressLint("NewApi")
-public class NativeAdActivity extends FragmentActivity implements ActionBar.TabListener {
+public class NativeAdActivity extends FragmentActivity implements ActionBar.TabListener{
 
 		private static final String TAG = NativeAdActivity.class.getSimpleName();
 

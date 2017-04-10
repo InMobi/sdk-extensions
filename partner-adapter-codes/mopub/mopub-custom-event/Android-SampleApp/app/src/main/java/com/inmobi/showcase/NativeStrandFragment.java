@@ -11,15 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.inmobi.showcase.InMobiNativeStrandCustomEvent.InMobiNativeStrandRenderer;
 import com.mopub.nativeads.MoPubNative;
 import com.mopub.nativeads.NativeAd;
 import com.mopub.nativeads.NativeErrorCode;
 
-import com.inmobi.showcase.InMobiNativeStrandCustomEvent.InMobiNativeStrandRenderer;
-
-/**
- * Created by jagadish.shenoy on 12/7/15.
- */
 public class NativeStrandFragment extends Fragment implements MoPubNative.MoPubNativeNetworkListener {
 
     static final String TITLE = "SimpleNativeStrand";

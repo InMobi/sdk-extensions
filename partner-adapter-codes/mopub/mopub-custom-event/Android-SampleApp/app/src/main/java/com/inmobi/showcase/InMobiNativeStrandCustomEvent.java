@@ -2,6 +2,7 @@ package com.inmobi.showcase;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -23,24 +24,32 @@ import com.mopub.nativeads.NativeErrorCode;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * Tested with InMobi SDK  6.0.4
+ */
+
+
 public class InMobiNativeStrandCustomEvent extends CustomEventNative {
 
     private static final String TAG = InMobiNativeStrandCustomEvent.class.getSimpleName();
     private static final String SERVER_EXTRA_ACCOUNT_ID = "accountid";
     private static final String SERVER_EXTRA_PLACEMENT_ID = "placementid";
-    private static final String LOCAL_EXTRA_ACTIVITY_CONTEXT = "activityContext";
 
     private static boolean mIsInMobiSdkInitialized = false;
 
     @Override
-    protected void loadNativeAd(@NonNull Activity activity,
-                                @NonNull CustomEventNativeListener customEventNativeListener,
-                                @NonNull Map<String, Object> localExtras, @NonNull Map<String, String> serverExtras) {
-        if (activity == null) {
-            Log.e(TAG, "Could not find Activity Context, Native Strand Mediation failed");
-            customEventNativeListener.onNativeAdFailed(NativeErrorCode.NATIVE_ADAPTER_CONFIGURATION_ERROR);
+    protected void loadNativeAd(@NonNull Context context, @NonNull CustomEventNativeListener
+            customEventNativeListener, @NonNull Map<String, Object> localExtras, @NonNull Map<String, String>
+            serverExtras) {
+        /*Activity activity;
+
+        if (context!=null && context instanceof Activity) {
+            activity = (Activity) context;
+        } else {
+            Log.w(TAG, "Context not an Activity. Returning error!");
+            customEventNativeListener.onNativeAdFailed(NativeErrorCode.NETWORK_NO_FILL);
             return;
-        }
+        }*/
 
         String accountId;
         long placementId;
@@ -50,7 +59,7 @@ public class InMobiNativeStrandCustomEvent extends CustomEventNative {
         Log.d(TAG, "Server Extras: Account ID:" + accountId + " Placement ID:" + placementId);
 
         if (!mIsInMobiSdkInitialized) {
-            InMobiSdk.init(activity, accountId);
+            InMobiSdk.init(context, accountId);
             mIsInMobiSdkInitialized = true;
         }
 
@@ -82,17 +91,19 @@ public class InMobiNativeStrandCustomEvent extends CustomEventNative {
         map.put("tp", "c_mopub");
         map.put("tp-ver", MoPub.SDK_VERSION);
 
-        final InMobiNativeStrandAd inMobiNativeStrandAd = new InMobiNativeStrandAd(activity, customEventNativeListener, placementId);
+        final InMobiNativeStrandAd inMobiNativeStrandAd = new InMobiNativeStrandAd(context,
+                customEventNativeListener, placementId);
         inMobiNativeStrandAd.setExtras(map);
         inMobiNativeStrandAd.loadAd();
     }
 
-    public static class InMobiNativeStrandRenderer implements MoPubAdRenderer<InMobiNativeStrandAd> {
+    public static class InMobiNativeStrandRenderer implements
+            MoPubAdRenderer<InMobiNativeStrandAd> {
 
         @Override
         @NonNull
-        public View createAdView(@NonNull Activity activity, @Nullable ViewGroup parent) {
-            final LinearLayout linearLayout = new LinearLayout(activity);
+        public View createAdView(@NonNull Context context, @Nullable ViewGroup parent) {
+            final LinearLayout linearLayout = new LinearLayout(context);
             return linearLayout;
         }
 
@@ -107,7 +118,8 @@ public class InMobiNativeStrandCustomEvent extends CustomEventNative {
                 parent.addView(strandView);
             } else {
                 //Child view is already in the parent view. So don't add it again.
-                strandView = inMobiNativeStrandAd.mInMobiNativeStrand.getStrandView(parent.getChildAt(0), parent);
+                strandView = inMobiNativeStrandAd.mInMobiNativeStrand.getStrandView(parent
+                        .getChildAt(0), parent);
             }
         }
 
@@ -118,7 +130,8 @@ public class InMobiNativeStrandCustomEvent extends CustomEventNative {
     }
 
 
-    private static class InMobiNativeStrandAd extends BaseNativeAd implements NativeStrandAdListener {
+    private static class InMobiNativeStrandAd extends BaseNativeAd implements
+            NativeStrandAdListener {
 
         private static final String TAG = "InMobiNativeStrandAd";
         private final CustomEventNativeListener mCustomEventNativeListener;
@@ -127,12 +140,15 @@ public class InMobiNativeStrandCustomEvent extends CustomEventNative {
         private boolean mIsImpressionRecorded = false;
         private boolean mIsClickRecorded = false;
 
-        InMobiNativeStrandAd(@NonNull final Activity activity,
-                             @NonNull final CustomEventNativeListener customEventNativeListener,
-                             long placementId) {
-            mNativeClickHandler = new NativeClickHandler(activity);
+        InMobiNativeStrandAd(@NonNull final Context context, @NonNull final CustomEventNativeListener
+                customEventNativeListener, long placementId) {
+            mNativeClickHandler = new NativeClickHandler(context);
             mCustomEventNativeListener = customEventNativeListener;
-            mInMobiNativeStrand = new InMobiNativeStrand(activity, placementId, this);
+            if (context instanceof Activity) {
+                mInMobiNativeStrand = new InMobiNativeStrand((Activity) context, placementId, this);
+            } else {
+                mInMobiNativeStrand = new InMobiNativeStrand(context, placementId, this);
+            }
         }
 
         void setExtras(Map<String, String> map) {
@@ -164,18 +180,20 @@ public class InMobiNativeStrandCustomEvent extends CustomEventNative {
         }
 
         @Override
-        public void onAdLoadFailed(@NonNull InMobiNativeStrand inMobiNativeStrand,
-                                   @NonNull InMobiAdRequestStatus requestStatus) {
+        public void onAdLoadFailed(@NonNull InMobiNativeStrand inMobiNativeStrand, @NonNull InMobiAdRequestStatus
+                requestStatus) {
             String errorMessage = "Failed to load Native Strand:";
             switch (requestStatus.getStatusCode()) {
                 case INTERNAL_ERROR:
                     errorMessage += "INTERNAL_ERROR";
-                    mCustomEventNativeListener.onNativeAdFailed(NativeErrorCode.NETWORK_INVALID_STATE);
+                    mCustomEventNativeListener.onNativeAdFailed(NativeErrorCode
+                            .NETWORK_INVALID_STATE);
                     break;
 
                 case REQUEST_INVALID:
                     errorMessage += "INVALID_REQUEST";
-                    mCustomEventNativeListener.onNativeAdFailed(NativeErrorCode.NETWORK_INVALID_REQUEST);
+                    mCustomEventNativeListener.onNativeAdFailed(NativeErrorCode
+                            .NETWORK_INVALID_REQUEST);
                     break;
 
                 case NETWORK_UNREACHABLE:
@@ -200,7 +218,8 @@ public class InMobiNativeStrandCustomEvent extends CustomEventNative {
 
                 case SERVER_ERROR:
                     errorMessage += "SERVER_ERROR";
-                    mCustomEventNativeListener.onNativeAdFailed(NativeErrorCode.SERVER_ERROR_RESPONSE_CODE);
+                    mCustomEventNativeListener.onNativeAdFailed(NativeErrorCode
+                            .SERVER_ERROR_RESPONSE_CODE);
                     break;
 
                 case AD_ACTIVE:

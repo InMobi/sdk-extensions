@@ -32,9 +32,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by jagadish.shenoy on 12/7/15.
- */
 public class NativeStrandListFragment extends ListFragment {
 
     static final String TITLE = "Strand List Fragment";

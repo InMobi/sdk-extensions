@@ -5,9 +5,6 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-/**
- * Created by jagadish.shenoy on 12/2/15.
- */
 //Disables swipe with the touch gesture.
 public class NonSwipeableViewPager extends ViewPager {
 

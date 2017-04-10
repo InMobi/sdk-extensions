@@ -21,28 +21,28 @@
         android:id="@+id/btnLoadInterstitial"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:text="@string/LoadInterstitial" />
 
     <Button
         android:id="@+id/btnLoadNativeStrands"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:text="@string/LoadNativeStrands" />
 
     <Button
         android:id="@+id/btnLoadNative"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:text="@string/LoadNative" />
 
     <Button
         android:id="@+id/btnLoadRewarded"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:text="@string/LoadRewarded" />
 
     

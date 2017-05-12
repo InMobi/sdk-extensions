@@ -1,0 +1,15 @@
+<!-- Copyright (C) 2016 Google, Inc.-->
+<resources>
+
+    <!-- Strings array used to display the items in banner ads spinner for large (tablet)
+     size screens. -->
+    <string-array name="banner_ad_sizes">
+        <item>Banner</item>
+        <item>Smart Banner</item>
+        <item>Medium Rectangle</item>
+        <item>Large Banner</item>
+        <item>Full Banner</item>
+        <item>Leaderboard</item>
+        <item>Skyscraper</item>
+    </string-array>
+</resources>

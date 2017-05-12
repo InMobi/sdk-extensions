@@ -32,5 +32,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:10.2.0'
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support:multidex:1.0.1'
-    compile 'com.inmobi.monetization:inmobi-ads:6.2.0'
+    compile 'com.inmobi.monetization:inmobi-ads:6.2.1'
 }

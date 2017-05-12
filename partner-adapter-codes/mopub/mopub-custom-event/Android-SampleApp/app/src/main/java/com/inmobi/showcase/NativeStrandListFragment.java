@@ -153,7 +153,7 @@ public class NativeStrandListFragment extends ListFragment {
         if (mStrandAdapter != null) {
             mStrandAdapter.destroy();
         }
-        super.onDestroy();
+        super.onDestroyView();
         Log.i(TITLE, "onDestroyView");
     }
 

@@ -1,0 +1,58 @@
+<!-- Copyright (C) 2016 Google, Inc.-->
+<resources xmlns:xliff="http://schemas.android.com/tools">
+    <string name="app_name">Test App</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_clear_logs">Clear Logs</string>
+
+    <!-- Navigation Drawer Items-->
+    <string name="title_end_to_end_tests">End to end tests</string>
+    <string name="item_interstitial">Interstitial Ad</string>
+    <string name="item_banner">Banner Ads</string>
+    <string name="item_custom_size_banner">Custom Size Banner</string>
+    <string name="item_rewarded_video">Rewarded Video</string>
+    <string name="item_native">Native Ad</string>
+
+    <!-- Fragment titles-->
+    <string name="title_interstitial_ad_fragment">Interstitial ad</string>
+    <string name="title_banner_ad_fragment">Banner ads</string>
+    <string name="title_custom_ad_size_fragment">Custom Size Banner Ad</string>
+    <string name="title_rewarded_video_ad_fragment">Rewarded Video Ad</string>
+    <string name="title_native_ad_fragment">Native Ad</string>
+
+    <string name="enter_ad_width">Enter width</string>
+    <string name="enter_ad_height">Enter height</string>
+    <string name="load_ad">Load Ad</string>
+    <string name="show_ad">Show Ad</string>
+    <string name="select_banner_size">Select Banner Size</string>
+    <string name="mediation_test_app">Mediation Test App</string>
+    <string name="mediation_support_email">mediation-support@google.com</string>
+    <string name="request_content_ads">Request Content Ads</string>
+    <string name="request_app_install_ads">Request App Install Ads</string>
+
+    <!-- Native ad title strings-->
+    <string name="headline">Headline:</string>
+    <string name="images">Images:</string>
+    <string name="body">Body:</string>
+    <string name="icon">Icon:</string>
+    <string name="call_to_action">Call to action:</string>
+    <string name="star_rating">Star rating:</string>
+    <string name="store">Store:</string>
+    <string name="price">Price:</string>
+    <string name="logo">Logo:</string>
+    <string name="advertiser">Advertiser:</string>
+    <string name="showing_images">Showing 1 of <xliff:g id="images_number">%1$s</xliff:g> images.
+    </string>
+    <string name="star_rating_value"><xliff:g id="rating_value">%1$.1f</xliff:g>/5 stars.</string>
+
+    <!-- Strings array used to display the items in Banner ads spinner-->
+    <string-array name="banner_ad_sizes">
+        <item>Banner</item>
+        <item>Smart Banner</item>
+        <item>Medium Rectangle</item>
+        <item>Large Banner</item>
+    </string-array>
+</resources>

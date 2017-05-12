@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDIBannerViewController">
+            <connections>
+                <outlet property="_scrollView" destination="yZK-LZ-0Od" id="Zn8-hP-yq0"/>
+                <outlet property="_textView" destination="jGC-QT-bGA" id="ray-oE-7EL"/>
+                <outlet property="view" destination="iN0-l3-epB" id="hsf-VE-eWt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yZK-LZ-0Od">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jGC-QT-bGA">
+                            <rect key="frame" x="0.0" y="400" width="600" height="200"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="Ges-PZ-Tg2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jGC-QT-bGA" secondAttribute="trailing" id="0Uu-4G-SEw"/>
+                        <constraint firstItem="jGC-QT-bGA" firstAttribute="top" secondItem="yZK-LZ-0Od" secondAttribute="top" constant="400" id="BSW-8t-tZS"/>
+                        <constraint firstItem="jGC-QT-bGA" firstAttribute="centerX" secondItem="yZK-LZ-0Od" secondAttribute="centerX" id="GhY-r7-lc6"/>
+                        <constraint firstAttribute="bottom" secondItem="jGC-QT-bGA" secondAttribute="bottom" id="Lkh-0T-jQN"/>
+                        <constraint firstItem="jGC-QT-bGA" firstAttribute="leading" secondItem="yZK-LZ-0Od" secondAttribute="leading" id="x7x-nT-Fhv"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="yZK-LZ-0Od" secondAttribute="bottom" id="023-fL-cNp"/>
+                <constraint firstItem="yZK-LZ-0Od" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6zB-cz-Y8w"/>
+                <constraint firstAttribute="trailing" secondItem="yZK-LZ-0Od" secondAttribute="trailing" id="DPJ-vG-MWt"/>
+                <constraint firstItem="yZK-LZ-0Od" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XnK-Yg-4uE"/>
+                <constraint firstItem="yZK-LZ-0Od" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ci7-yZ-qGJ"/>
+                <constraint firstItem="yZK-LZ-0Od" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eRI-NZ-Utr"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

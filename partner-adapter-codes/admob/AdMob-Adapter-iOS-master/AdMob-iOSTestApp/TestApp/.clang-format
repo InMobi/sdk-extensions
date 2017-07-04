@@ -1,0 +1,8 @@
+BasedOnStyle:  Google
+ColumnLimit: 100
+DerivePointerBinding: false
+PointerBindsToType: false
+ObjCSpaceAfterProperty: false
+BinPackArguments: true
+BinPackParameters: true
+ObjCBlockIndentWidth: 2

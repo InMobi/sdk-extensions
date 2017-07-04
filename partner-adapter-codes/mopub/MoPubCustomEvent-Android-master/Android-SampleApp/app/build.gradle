@@ -32,5 +32,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.0.0'
     compile 'com.android.support:support-annotations:23.0.0'
     compile 'com.android.support:support-v4:23.0.0'
-    compile 'com.inmobi.monetization:inmobi-ads:6.0.4'
+    compile 'com.inmobi.monetization:inmobi-ads:6.2.3'
 }

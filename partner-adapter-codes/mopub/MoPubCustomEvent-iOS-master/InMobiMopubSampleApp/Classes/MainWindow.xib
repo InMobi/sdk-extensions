@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIApplication">
+            <connections>
+                <outlet property="delegate" destination="3" id="4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <customObject id="3" userLabel="SimpleAds App Delegate" customClass="SimpleAdsAppDelegate">
+            <connections>
+                <outlet property="tabBarController" destination="20" id="34"/>
+                <outlet property="window" destination="12" id="14"/>
+            </connections>
+        </customObject>
+        <window opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="12">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </window>
+        <tabBarController id="20" customClass="FlexibleRotationTabBarController">
+            <extendedEdge key="edgesForExtendedLayout"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+            <tabBar key="tabBar" contentMode="scaleToFill" id="21">
+                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            </tabBar>
+            <viewControllers>
+                <viewController title="NativeStrands" id="C6L-op-uAc" userLabel="IAB Sizes" customClass="NativeStrandsAdTableViewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="NativeStrands" id="AVA-UY-9tv" userLabel="NativeStrands"/>
+                </viewController>
+                <viewController id="30" userLabel="IAB Sizes" customClass="SimpleAdsViewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Banners" id="31"/>
+                </viewController>
+                <viewController id="dfT-Ce-k0n" userLabel="IAB Sizes" customClass="RewardedVideoViewController">
+                    <tabBarItem key="tabBarItem" title="Rewarded" id="FMp-X0-aS8" userLabel="Rewarded"/>
+                </viewController>
+                <tableViewController id="Hn2-h1-FsL" userLabel="IAB Sizes" customClass="NativeAdsTableViewController">
+                    <tabBarItem key="tabBarItem" title="Native" id="Lny-s9-f8Y"/>
+                </tableViewController>
+                <viewController title="Interstitials" id="28" userLabel="IAB Sizes" customClass="InterstitialViewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Interstitials" id="29"/>
+                </viewController>
+            </viewControllers>
+        </tabBarController>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/InMobiAds/Editor/Postbuild/InMobiPostBuildiOS.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/InMobiAds/Demo/Scripts/InMobiAdsDemoScript.cs">
     <Files>
-      <File FileName="Assets/InMobiAds/Editor/Postbuild/InMobiPostBuildiOS.cs" Line="100" Column="4" />
+      <File FileName="Assets/InMobiAds/Demo/Scripts/InMobiAdsDemoScript.cs" Line="128" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

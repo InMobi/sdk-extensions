@@ -18,8 +18,8 @@
 
 - (id)initBannerAd:(InMobiBannerClientRef*) bannerClient
          placementId:(NSString*) placementId
-               width:(CGFloat) width
-              height:(CGFloat) height
+               width:(int) width
+              height:(int) height
             position:(int) position{
     self = [super init];
     if(self){

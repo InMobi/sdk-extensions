@@ -21,17 +21,12 @@
 			"libsqlite3.0.dylib"
 		};
 
-
-		private static string nativeCodeInUnityPath = "Assets/Plugins/iOS";
-		private static string nativeCodeInXcodePath = "InMobi";
-
 		[PostProcessBuild (100)]
 		public static void OnPostprocessBuild (BuildTarget buildTarget, string buildPath)
 		{
 			// BuiltTarget.iOS is not defined in Unity 4, so we just use strings here
 			if (buildTarget.ToString () == "iOS" || buildTarget.ToString () == "iPhone") {
 				PrepareProject (buildPath);
-				InjectNativeCode (buildPath);
 			}
 		}
 	
@@ -50,53 +45,6 @@
 
 			File.WriteAllText (projPath, project.WriteToString ());
 		}
-			
-
-		private static void InjectNativeCode (string buildPath)
-		{
-			string projPath = Path.Combine (buildPath, "Unity-iPhone.xcodeproj/project.pbxproj");
-			string nativeCodeInUnityFullPath = Path.Combine (Directory.GetCurrentDirectory (), nativeCodeInUnityPath);
-			string nativeCodeInXcodeFullPath = Path.Combine (buildPath, nativeCodeInXcodePath);
-
-			PBXProject project = new PBXProject ();
-			project.ReadFromString (File.ReadAllText (projPath));
-
-			DirectoryCopy (nativeCodeInUnityFullPath, nativeCodeInXcodeFullPath, true);
-
-			string targetGuid = project.TargetGuidByName ("Unity-iPhone");
-			string[] files = Directory.GetFiles (nativeCodeInXcodeFullPath, "*", SearchOption.AllDirectories);
-
-			foreach (string fileFullPath in files) {
-				string fileExt = Path.GetExtension (fileFullPath);
-				if (fileExt.Equals(".meta") || fileExt.Equals(".txt")) {
-					continue;
-				}
-
-				string fileName = Path.GetFileName (fileFullPath);
-				string fileGuid = project.AddFile (fileFullPath, Path.Combine (nativeCodeInXcodePath, fileName));
-				project.AddFileToBuild (targetGuid, fileGuid);
-			}
-
-			string[] subdirs = Directory.GetDirectories (nativeCodeInXcodeFullPath);
-			foreach (string subdir in subdirs) {
-				project.AddBuildProperty (targetGuid, "HEADER_SEARCH_PATHS", subdir);
-
-				AddAllFoundFrameworks (project, targetGuid, subdir);
-			}
-			File.WriteAllText (projPath, project.WriteToString ());
-		}
-
-		private static void AddAllFoundFrameworks (PBXProject project, string targetGuid, string source)
-		{
-			string[] dirs = Directory.GetDirectories (source);
-			foreach (string dir in dirs) {
-				if (dir.EndsWith (".framework")) {
-					string fileGuid = project.AddFile (dir, "Frameworks/" + dir.Substring (dir.LastIndexOf ("/") + 1));
-					project.AddFileToBuild (targetGuid, fileGuid);
-					project.AddBuildProperty (targetGuid, "FRAMEWORK_SEARCH_PATHS", source);
-				}
-				AddAllFoundFrameworks (project, targetGuid, dir);
-			}
-		}
+	
 	}
 }

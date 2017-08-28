@@ -227,7 +227,7 @@ void SetNationality(const char* nationality){
 /// Creates a GADBannerView with the specified width, height, and position. Returns a reference to
 /// the GADUBannerView.
 InMobiBannerRef InMobiCreateBannerAd(InMobiBannerClientRef *bannerClient, const char *placementId,
-                                     CGFloat width, CGFloat height, int position) {
+                                     int width, int height, int position) {
     InMobiBanner *banner = [[InMobiBanner alloc] initBannerAd:bannerClient
                                                   placementId:InMobiStringFromUTF8String(placementId)
                                                         width:width

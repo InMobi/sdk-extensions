@@ -1,9 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{219CF995-FBBF-5BEF-DFA0-1ED2DE197013}") = "UnityInMobiPluginProject", "Assembly-CSharp.csproj", "{DD1669C4-CE46-590D-A83F-56A29ED35C5D}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityInMobiPluginProject", "Assembly-CSharp.csproj", "{DD1669C4-CE46-590D-A83F-56A29ED35C5D}"
 EndProject
-Project("{219CF995-FBBF-5BEF-DFA0-1ED2DE197013}") = "UnityInMobiPluginProject", "Assembly-CSharp-Editor.csproj", "{1BD68B95-E9BE-B840-8443-A78EB10CE98A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityInMobiPluginProject", "Assembly-CSharp-Editor.csproj", "{1BD68B95-E9BE-B840-8443-A78EB10CE98A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

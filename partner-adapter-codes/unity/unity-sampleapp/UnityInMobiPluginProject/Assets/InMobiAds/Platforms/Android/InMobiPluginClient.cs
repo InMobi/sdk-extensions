@@ -25,17 +25,7 @@ namespace InMobiAds.Platforms.Android
 		public void SetLogLevel(string logLevel){
 			this.inmobiPlugin.Call ("setLogLevel", new object[1]{ logLevel });
 		}
-
-		//Add Id Type login/session
-		public void AddIdType(string idType, string value){
-			this.inmobiPlugin.Call ("addIdType", new object[2]{ idType, value });
-		}
-
-		//Remove Id Type login/session
-		public void RemoveIdType(string idType){
-			this.inmobiPlugin.Call ("removeIdType", new object[1]{ idType });
-		}
-
+			
 		//Set Age
 		public void SetAge(int age){
 			this.inmobiPlugin.Call ("setAge", new object[1]{ age });

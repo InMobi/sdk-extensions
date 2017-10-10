@@ -28,17 +28,7 @@ namespace InMobiAds.Api
 		public void SetLogLevel(string logLevel){
 			inmobiPluginClient.SetLogLevel (logLevel);
 		}
-
-		//Add Id Type login/session
-		public void AddIdType(string idType, string value){
-			inmobiPluginClient.AddIdType (idType, value);
-		}
-
-		//Remove Id Type login/session
-		public void RemoveIdType(string idType){
-			inmobiPluginClient.RemoveIdType (idType);
-		}
-
+			
 		//Set Age
 		public void SetAge(int age){
 			inmobiPluginClient.SetAge (age);

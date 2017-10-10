@@ -13,18 +13,9 @@ namespace InMobiAds.Platforms.iOS
 		[DllImport("__Internal")]
 		internal static extern void Init (string accountId);
 
-
 		//Set log level
 		[DllImport("__Internal")]
 		internal static extern void SetLogLevel(string logLevel);
-
-		//Add Id Type login/session
-		[DllImport("__Internal")]
-		internal static extern void AddIdType(string idType, string value);
-
-		//Remove Id Type login/session
-		[DllImport("__Internal")]
-		internal static extern void RemoveIdType(string idType);
 
 		//Set Age
 		[DllImport("__Internal")]

@@ -11,12 +11,6 @@ namespace InMobiAds.Common
 		//Set log level
 		void SetLogLevel(string logLevel);
 
-		//Add Id Type login/session
-		void AddIdType(string idType, string value);
-
-		//Remove Id Type login/session
-		void RemoveIdType(string idType);
-
 		//Set Age
 		void SetAge(int age);
 

@@ -63,27 +63,6 @@ void SetLogLevel(const char* logLevel){
     }
 }
 
-void AddIdType(const char* idType, const char* value){
-    NSString *idTypeString = InMobiStringFromUTF8String(idType);
-    NSString *valueString = InMobiStringFromUTF8String(value);
-    if([idTypeString isEqualToString:@"LOGIN"]){
-        [IMSdk addId:valueString forType:kIMSDKIdTypeLogin];
-    }
-    else if ([idTypeString isEqualToString:@"SESSION"]){
-        [IMSdk addId:valueString forType:kIMSDKIdTypeSession];
-    }
-}
-
-void RemoveIdType(const char* idType){
-    NSString *idTypeString = InMobiStringFromUTF8String(idType);
-    if([idTypeString isEqualToString:@"LOGIN"]){
-        [IMSdk removeIdType:kIMSDKIdTypeLogin];
-    }
-    else if ([idTypeString isEqualToString:@"SESSION"]){
-        [IMSdk removeIdType:kIMSDKIdTypeSession];
-    }
-}
-
 void SetAge(int age){
     [IMSdk setAge:age];
 }
@@ -94,20 +73,26 @@ void SetAgeGroup(const char* ageGroup){
         if ([ageGroupType isEqualToString:@"Below18"]) {
             [IMSdk setAgeGroup:kIMSDKAgeGroupBelow18];
         }
-        else if ([ageGroupType isEqualToString:@"Between18And20"]) {
-            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween18And20];
+        else if ([ageGroupType isEqualToString:@"Between18And24"]) {
+            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween18And24];
         }
-        else if ([ageGroupType isEqualToString:@"Between21And24"]){
-            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween21And24];
+        else if ([ageGroupType isEqualToString:@"Between25And29"]){
+            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween25And29];
         }
-        else if ([ageGroupType isEqualToString:@"Between25And34"]){
-            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween25And34];
+        else if ([ageGroupType isEqualToString:@"Between30And34"]){
+            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween30And34];
         }
-        else if ([ageGroupType isEqualToString:@"Between35To54"]){
-            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween35And54];
+        else if ([ageGroupType isEqualToString:@"Between35To44"]){
+            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween35And44];
         }
-        else if ([ageGroupType isEqualToString:@"Above55"]){
-            [IMSdk setAgeGroup:kIMSDKAgeGroupAbove55];
+        else if ([ageGroupType isEqualToString:@"Between45To54"]){
+            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween45And54];
+        }
+        else if ([ageGroupType isEqualToString:@"Between55To65"]){
+            [IMSdk setAgeGroup:kIMSDKAgeGroupBetween55And65];
+        }
+        else if ([ageGroupType isEqualToString:@"Above65"]){
+            [IMSdk setAgeGroup:kIMSDKAgeGroupAbove65];
         }
     }
 }
@@ -184,7 +169,7 @@ void SetHouseHoldIncome(const char* incomeLevel){
             [IMSdk setHouseholdIncome:kIMSDKHouseholdIncomeBelow5kUSD];
         }
         else if ([houseHoldIncome isEqualToString:@"BETWEEN_USD_5K_AND_10K"]){
-            [IMSdk setHouseholdIncome:kIMSDKHouseholdIncomeBetweek5kAnd10kUSD];
+            [IMSdk setHouseholdIncome:kIMSDKHouseholdIncomeBetween5kAnd10kUSD];
         }
         else if ([houseHoldIncome isEqualToString:@"BETWEEN_USD_10K_AND_15K"]){
             [IMSdk setHouseholdIncome:kIMSDKHouseholdIncomeBetween10kAnd15kUSD];
@@ -227,7 +212,7 @@ void SetNationality(const char* nationality){
 /// Creates a GADBannerView with the specified width, height, and position. Returns a reference to
 /// the GADUBannerView.
 InMobiBannerRef InMobiCreateBannerAd(InMobiBannerClientRef *bannerClient, const char *placementId,
-                                     int width, int height, int position) {
+                                     CGFloat width, CGFloat height, int position) {
     InMobiBanner *banner = [[InMobiBanner alloc] initBannerAd:bannerClient
                                                   placementId:InMobiStringFromUTF8String(placementId)
                                                         width:width

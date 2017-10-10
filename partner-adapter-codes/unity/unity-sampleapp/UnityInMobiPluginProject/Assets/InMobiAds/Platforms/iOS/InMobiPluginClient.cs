@@ -20,14 +20,6 @@ namespace InMobiAds.Platforms.iOS
 		public void SetLogLevel(string logLevel){
 			InMobiBinding.SetLogLevel (logLevel);
 		}
-		//Add Id Type login/session
-		public void AddIdType(string idType, string value){
-			InMobiBinding.AddIdType (idType, value);
-		}
-		//Remove Id Type login/session
-		public void RemoveIdType(string idType){
-			InMobiBinding.RemoveIdType (idType);
-		}
 
 		//Set Age
 		public void SetAge(int age){
